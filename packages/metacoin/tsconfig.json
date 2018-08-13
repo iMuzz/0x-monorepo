@@ -1,16 +1,21 @@
 {
     "compilerOptions": {
-        "outDir": "lib",
+        "outDir": "./lib",
         "lib": ["es2017"],
         "skipLibCheck": true,
         "typeRoots": [
-            "comment: for building within 0x-monorepo:",
+            // For building within 0x-monorepo:
             "../../node_modules/@0xproject/typescript-typings/types",
             "../../node_modules/@types",
-            "comment: for building in an isolated environment:",
+            // For building in an isolated environment:
             "node_modules/@0xproject/typescript-typings/types",
             "node_modules/@types"
-        ]
+        ],
+        // These settings are required for TypeScript project references
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true
     },
-    "include": ["src/**/*", "test/**/*"]
+    "include": ["./src/**/*", "./test/**/*"]
 }

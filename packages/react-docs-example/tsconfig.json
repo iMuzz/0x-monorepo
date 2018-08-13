@@ -1,13 +1,10 @@
 {
     "extends": "../../tsconfig",
     "compilerOptions": {
-        "outDir": "./lib/",
+        "outDir": "./lib",
+        "rootDir": "./ts",
         "jsx": "react",
-        "baseUrl": "./",
-        "strictNullChecks": false,
-        "paths": {
-            "*": ["node_modules/@types/*", "*"]
-        }
+        "strictNullChecks": false
     },
     "include": ["./ts/**/*"]
 }

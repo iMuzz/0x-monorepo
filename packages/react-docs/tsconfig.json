@@ -3,11 +3,8 @@
     "compilerOptions": {
         "outDir": "./lib/",
         "jsx": "react",
-        "baseUrl": "./",
         "strictNullChecks": false,
-        "paths": {
-            "*": ["node_modules/@types/*", "*"]
-        }
+        "rootDir": "src"
     },
     "include": ["./src/**/*"]
 }
