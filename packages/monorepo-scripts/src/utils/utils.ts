@@ -9,9 +9,23 @@ import { GitTagsByPackageName, Package, PackageJSON, UpdatedPackage } from '../t
 
 import { changelogUtils } from './changelog_utils';
 
+export interface Dependencies {
+    [depName: string]: string;
+}
+
 export const utils = {
     log(...args: any[]): void {
         console.log(...args); // tslint:disable-line:no-console
+    },
+    // tslint:disable:no-unused-variable
+    getDependencies(path: string): Dependencies {
+        const file = fs.readFileSync(path).toString();
+        const parsed = JSON.parse(file);
+        const dependencies = {
+            ...parsed.dependencies,
+            ...parsed.devDependencies,
+        };
+        return dependencies;
     },
     getTopologicallySortedPackages(rootDir: string): Package[] {
         const packages = utils.getPackages(rootDir);

@@ -18,7 +18,7 @@
         "test:circleci": "yarn test:coverage",
         "clean": "shx rm -rf lib",
         "build": "tsc && yarn build-json",
-        "build-json": "ts-node build_scripts/buildJson.ts",
+        "build-json": "node lib/build_scripts/buildJson.js",
         "build-json:watch": "chokidar 'src/**/*' -c 'yarn build-json' ",
         "deploy-site": "discharge deploy"
     },
@@ -52,7 +52,7 @@
         "swagger-cli": "^2.1.1",
         "ts-node": "^7.0.0",
         "tslint": "5.11.0",
-        "typescript": "2.7.1"
+        "typescript": "3.0.1"
     },
     "publishConfig": {
         "access": "public"

@@ -7,9 +7,6 @@ import * as _ from 'lodash';
 
 import { utils } from './utils/utils';
 
-interface Dependencies {
-    [depName: string]: string;
-}
 interface Versions {
     [packageName: string]: string;
 }
@@ -19,22 +16,11 @@ interface VersionsByDependency {
 
 const PACKAGE_JSON_GLOB = '../*/package.json';
 
-// tslint:disable:no-unused-variable
-function getDependencies(path: string): Dependencies {
-    const file = fs.readFileSync(path).toString();
-    const parsed = JSON.parse(file);
-    const dependencies = {
-        ...parsed.dependencies,
-        ...parsed.devDependencies,
-    };
-    return dependencies;
-}
-
 const files = globSync(PACKAGE_JSON_GLOB);
 const versionsByDependency: VersionsByDependency = {};
 files.map(path => {
     const [_1, packageName, _2] = path.split('/');
-    const dependencies = getDependencies(path);
+    const dependencies = utils.getDependencies(path);
     _.map(dependencies, (version: string, depName: string) => {
         if (_.isUndefined(versionsByDependency[depName])) {
             versionsByDependency[depName] = {};
