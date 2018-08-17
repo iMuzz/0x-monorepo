@@ -4,14 +4,11 @@
         "lib": ["es2017"],
         "skipLibCheck": true,
         "typeRoots": [
-            // For building within 0x-monorepo:
             "../../node_modules/@0xproject/typescript-typings/types",
             "../../node_modules/@types",
-            // For building in an isolated environment:
             "node_modules/@0xproject/typescript-typings/types",
             "node_modules/@types"
         ],
-        // These settings are required for TypeScript project references
         "composite": true,
         "declaration": true,
         "declarationMap": true,
