@@ -13,6 +13,7 @@
         // These settings are required for TypeScript project references
         "composite": true,
         "declaration": true,
+        "declarationMap": true,
         "sourceMap": true
     },
     // The root of the project is just a list of references and does not contain
