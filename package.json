@@ -24,7 +24,7 @@
         "wsrun": "wsrun",
         "lerna": "lerna",
         "watch": "wsrun watch_without_deps $PKG --fast-exit -r --stages --done-criteria='complete|successfully'",
-        "build": "pre_build && tsc -b $PKG",
+        "build": "wsrun build $PKG --fast-exit -r --stages",
         "pre_build": "wsrun pre_build $PKG --exclude-missing --fast-exit -r --stages",
         "build:no_website": "wsrun build $PKG --fast-exit -r --stages --exclude @0xproject/website",
         "build:monorepo_scripts": "PKG=@0xproject/monorepo-scripts yarn build",
